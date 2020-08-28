@@ -7,9 +7,6 @@ const authController = require('../controllers/auth')
 router.get('/', indexController.getIndex);
 router.get('/inscription',authController.getInscription)
 router.get('/connexion',authController.getConnexion)
-router.get('/demander-un-trajet',indexController.getDemanderTrajet)
-router.get('/trajets',indexController.getVoirTrajets)
-router.get('/paiement',indexController.getPaiement)
 router.get('/mon-compte',indexController.getMonCompte)
 
 /* POST */

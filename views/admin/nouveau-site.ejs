@@ -1,0 +1,170 @@
+<%-include('../includes/header.ejs')%>
+<link rel='stylesheet' href='/stylesheets/nouveau-site.css' />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nouveau site de dépistage</h1>
+        <form class='formulaire-nouveau-site' id='add-site' name='add-site' method="POST" action="/admin/ajouter-site">
+            <h3 class='label-form'>Informations et adresses</h3>
+
+            <div class="form-group">
+                <label for="nom">Nom du site</label>
+                <input required id="nom" class="form-control" placeholder="Nom du site" name="nomSite">
+            </div>
+            <div class="form-group">
+                <label>Numéro et nom de la voie</label>
+                <input required class="form-control" placeholder="Numéro et voie" name='adresseSite'>
+            </div>
+            <div class="form-group">
+                <label>Code postale</label>
+                <input required class="form-control" placeholder="Code postale" name='cpSite'>
+            </div>
+            <div class="form-group">
+                <label>Ville</label>
+                <input required class="form-control" placeholder="Ville" name='villeSite'>
+            </div>
+            <div class="form-group">
+                <label>Description du site</label>
+                <textarea required class="form-control" placeholder="Description du site" name='descriptionSite'></textarea>
+            </div>
+            <h3 class='label-form'>Créneaux</h3>
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dynamic_field">
+                    <tr>
+                        <td style="vertical-align:middle;">
+                            <label class='creneau'>Nouveau créneau</label>
+                        </td>
+                        <td>
+                            <label>Date</label>
+                            <input required class="form-control datepick" type="text" id="datepicker1" name="dateCreneau1">
+                        </td>
+                        <td>
+                            <label>Début de la tranche horaire</label>
+                            <select class='form-control' name="debutCreneau1" required>
+                                <option disabled selected value>Choisissez un horaire</option>
+                                <option value="6">06h</option>
+                                <option value="7">07h</option>
+                                <option value="8">08h</option>
+                                <option value="9">09h</option>
+                                <option value="10">10h</option>
+                                <option value="11">11h</option>
+                                <option value="12">12h</option>
+                                <option value="13">13h</option>
+                                <option value="14">14h</option>
+                                <option value="15">15h</option>
+                                <option value="16">16h</option>
+                                <option value="17">17h</option>
+                                <option value="18">18h</option>
+                                <option value="19">19h</option>
+                                <option value="20">20h</option>
+                                <option value="21">21h</option>
+                                <option value="22">22h</option>
+                                <option value="23">23h</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label>Fin de la tranche horaire</label>
+                            <select class='form-control' name="finCreneau1" required>
+                                <option disabled selected value>Choisissez un horaire</option>
+                                <option value="6">06h</option>
+                                <option value="7">07h</option>
+                                <option value="8">08h</option>
+                                <option value="9">09h</option>
+                                <option value="10">10h</option>
+                                <option value="11">11h</option>
+                                <option value="12">12h</option>
+                                <option value="13">13h</option>
+                                <option value="14">14h</option>
+                                <option value="15">15h</option>
+                                <option value="16">16h</option>
+                                <option value="17">17h</option>
+                                <option value="18">18h</option>
+                                <option value="19">19h</option>
+                                <option value="20">20h</option>
+                                <option value="21">21h</option>
+                                <option value="22">22h</option>
+                                <option value="23">23h</option>
+                            </select>
+                        </td>
+                        <td style="vertical-align:middle;"><button type="button" name="add" id="add"
+                                class="btn btn-success">Ajouter un créneau</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <button id='submit' type="submit" class="btn btn-primary">Ajouter le site</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
+<!-- <script>
+    $(function () {
+        $("#datepicker").datepicker({
+            altField: "#datepicker",
+            closeText: 'Fermer',
+            prevText: 'Précédent',
+            nextText: 'Suivant',
+            currentText: 'Aujourd\'hui',
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+            dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+            dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+            weekHeader: 'Sem.',
+            dateFormat: 'DD dd MM yy'
+        });
+    });
+</script> -->
+
+<script>
+    $(document).ready(function () {
+        var i = 1;
+        $('.datepick').each(function () {
+            $(this).datepicker({
+                    altField: "#datepicker",
+                    closeText: 'Fermer',
+                    prevText: 'Précédent',
+                    nextText: 'Suivant',
+                    currentText: 'Aujourd\'hui',
+                    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                    dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                    dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                    weekHeader: 'Sem.',
+                    dateFormat: 'DD dd MM yy'
+                });
+        });
+        $('#add').click(function () {
+            i++;
+            $('#dynamic_field').append('<tr id="row' + i + '"><td style="vertical-align:middle"><label class="creneau">Nouveau créneau</label></td><td><label>Date</label><input required class="form-control datepick"  type="text" id="datepicker' + i + '" name="dateCreneau' + i + '"></td></td><td><label>Début de la tranche horaire</label><select required class="form-control" name="debutCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td><label>Fin de la tranche horaire</label><select required class="form-control" name="finCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td style="vertical-align:center;"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">Supprimer le créneau</button></td></tr>');
+            $('.datepick').each(function () {
+                $(this).datepicker({
+                    altField: "#datepicker",
+                    closeText: 'Fermer',
+                    prevText: 'Précédent',
+                    nextText: 'Suivant',
+                    currentText: 'Aujourd\'hui',
+                    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                    dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                    dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                    weekHeader: 'Sem.',
+                    dateFormat: 'DD dd MM yy'
+                });
+            });
+        });
+        $(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr("id");
+            $('#row' + button_id + '').remove();
+        });
+    });  
+</script>
