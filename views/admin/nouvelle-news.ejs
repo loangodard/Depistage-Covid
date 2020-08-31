@@ -1,0 +1,34 @@
+<%-include('../includes/header.ejs')%>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nouvelle News</h1>
+        <form method="POST" action='/admin/nouvelle-news' enctype="multipart/form-data">
+            <div class="form-group">
+                <h5>Titre de la News</h5>
+                <input required class="form-control" placeholder="Titre de la News" name="titre" >
+            </div>
+
+            <div class="form-group">
+                <h5 for="nom">Contenu de la News</h5>
+                <textarea placeholder='Contenu de la news'class="form-control" name="contenu"></textarea>
+            </div>
+
+            <div class="form-group">
+                <h5 for="nom">Image</h5>
+                <input name='image' class="form-control" type="file">
+                <br>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Remarque : </strong> Si vous n'ajoutez pas d'image, une image sera ajouté par défaut
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <button class='btn btn-success'>Ajouter la News</button>
+        </form>
+    </div>
+</body>
+
+</html>

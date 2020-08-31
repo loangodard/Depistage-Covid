@@ -29,3 +29,8 @@ a {
     width: 30rem;
   }
 }
+
+.center{
+  margin-right: auto;
+  margin-left: auto;
+}

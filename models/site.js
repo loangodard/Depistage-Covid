@@ -15,6 +15,9 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
+    images:{
+        type:Array
+    },
     creneaux:{
         type:Array
     }

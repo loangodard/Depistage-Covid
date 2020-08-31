@@ -8,6 +8,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 
+
 const User = require('./models/user');
 
 var indexRouter = require('./routes/index');

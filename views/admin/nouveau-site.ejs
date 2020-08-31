@@ -5,7 +5,7 @@
 <body>
     <div class="container">
         <h1>Nouveau site de dépistage</h1>
-        <form class='formulaire-nouveau-site' id='add-site' name='add-site' method="POST" action="/admin/ajouter-site">
+        <form class='formulaire-nouveau-site' id='add-site' name='add-site' method="POST" action="/admin/ajouter-site" enctype="multipart/form-data">
             <h3 class='label-form'>Informations et adresses</h3>
 
             <div class="form-group">
@@ -28,6 +28,10 @@
                 <label>Description du site</label>
                 <textarea required class="form-control" placeholder="Description du site" name='descriptionSite'></textarea>
             </div>
+            <div class="form-group">
+                <label>Photos</label>
+                <input class='form-control' type="file" name="images" id="images" multiple>
+            </div>
             <h3 class='label-form'>Créneaux</h3>
 
 
@@ -39,7 +43,7 @@
                         </td>
                         <td>
                             <label>Date</label>
-                            <input required class="form-control datepick" type="text" id="datepicker1" name="dateCreneau1">
+                            <input required class="form-control datepick" type="text" id="datepicker1" name="dateCreneau1" autocomplete="off">
                         </td>
                         <td>
                             <label>Début de la tranche horaire</label>
@@ -118,7 +122,7 @@
             dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
             dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
             weekHeader: 'Sem.',
-            dateFormat: 'DD dd MM yy'
+            dateFormat: 'dd mm yyyy'
         });
     });
 </script> -->
@@ -139,12 +143,12 @@
                     dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
                     dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
                     weekHeader: 'Sem.',
-                    dateFormat: 'DD dd MM yy'
+                    dateFormat: 'dd/mm/yy'
                 });
         });
         $('#add').click(function () {
             i++;
-            $('#dynamic_field').append('<tr id="row' + i + '"><td style="vertical-align:middle"><label class="creneau">Nouveau créneau</label></td><td><label>Date</label><input required class="form-control datepick"  type="text" id="datepicker' + i + '" name="dateCreneau' + i + '"></td></td><td><label>Début de la tranche horaire</label><select required class="form-control" name="debutCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td><label>Fin de la tranche horaire</label><select required class="form-control" name="finCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td style="vertical-align:center;"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">Supprimer le créneau</button></td></tr>');
+            $('#dynamic_field').append('<tr id="row' + i + '"><td style="vertical-align:middle"><label class="creneau">Nouveau créneau</label></td><td><label>Date</label><input autocomplete="off" required class="form-control datepick"  type="text" id="datepicker' + i + '" name="dateCreneau' + i + '"></td></td><td><label>Début de la tranche horaire</label><select required class="form-control" name="debutCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td><label>Fin de la tranche horaire</label><select required class="form-control" name="finCreneau' + i + '"><option disabled selected value>Choisissez un horaire</option><option value="6">06h</option><option value="7">07h</option><option value="8">08h</option><option value="9">09h</option><option value="10">10h</option><option value="11">11h</option><option value="12">12h</option><option value="13">13h</option><option value="14">14h</option><option value="15">15h</option><option value="16">16h</option><option value="17">17h</option><option value="18">18h</option><option value="19">19h</option><option value="20">20h</option><option value="21">21h</option><option value="22">22h</option><option value="23">23h</option></select></td><td style="vertical-align:center;"><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">Supprimer le créneau</button></td></tr>');
             $('.datepick').each(function () {
                 $(this).datepicker({
                     altField: "#datepicker",
@@ -158,7 +162,7 @@
                     dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
                     dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
                     weekHeader: 'Sem.',
-                    dateFormat: 'DD dd MM yy'
+                    dateFormat: 'dd/mm/yy'
                 });
             });
         });
