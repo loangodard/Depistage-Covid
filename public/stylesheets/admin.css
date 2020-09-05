@@ -1,0 +1,10 @@
+ul li{
+    display: inline;
+}
+
+.nouveau-site{
+    padding: 10px;
+    border: solid #0D324D 1px ;
+    color: #0D324D;
+    border-radius: 10px;
+}

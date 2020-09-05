@@ -1,7 +1,69 @@
 <%-include('./includes/header.ejs')%>
-  </head>
-  <%-include('./includes/navigation.ejs')%>
-  <body>
-    <h1>Index</h1>
-  </body>
+<link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+<%-include('./includes/navigation.ejs')%>
+
+<body>
+  <section class="jumbotron">
+    <div class="container">
+      <div class="">
+        <div class="row">
+          <h2>COVID-19, dépistage</h2>
+        </div>
+        <div class="row">
+          <h3>CTRS Aubois</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-8">
+        <h1>Comment ca marche ?</h1>
+        <p style="text-align: justify;">Dans le contexte épidémique , en lien avec les élus et l’ARS – Délégation territoriale de l’Aube, les
+          professionnels de santé libéraux du territoire du barséquanais et l’hôpital de Bar-sur-Seine s’organisent pour
+          permettre le dépistage viral. Le dépistage proposé est par test RT-PCR. Il est gratuit, sans rendez-vous
+          et
+          sans ordonnance. Toute personne qui le souhaite pourra se faire tester. </p>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-4">
+        <img class="img-fluid rounded mx-auto d-block" src="https://depistage-covid.s3.eu-west-3.amazonaws.com/personnage-cours.png"
+          width="50%">
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h1 class="center">Comment se déroule le test ?</h1>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-4">
+        <img class="img-fluid rounded mx-auto d-block" src="https://depistage-covid.s3.eu-west-3.amazonaws.com/personnage-gants.png" width="60%">
+      </div>
+      <div class="col-12 col-sm-12 col-lg-8">
+        <div class="">
+          <ol class='mx-auto d-block'>
+            <li>Nous renseignons avec vous les éléments administratifs vous concernant (prénom, nom, adresse, date de
+              naissance, numéro de téléphone, et numéro de Sécurité Sociale, adresse mail si disponible)</li>
+            <li>Le personnel soignant effectue un prélèvement dans le nez à l’aide d’un écouvillon.
+            </li>
+            <li>
+              Sous 24 heures, vous recevez un email vous informant de la mise à disposition de vos résultats.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="text-align: center; margin-bottom: 100px;">
+    <a href="/prelevement"><button class='bouton'>Choisir un site de prélèvement</button></a>
+  </div>
+
+</body>
+
 </html>

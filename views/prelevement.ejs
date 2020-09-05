@@ -1,0 +1,74 @@
+<%-include('./includes/header.ejs')%>
+<link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+<%-include('./includes/navigation.ejs')%>
+
+<body>
+    <div class="container" style="text-align: center;">
+        <h1>Vous souhaitez vous faire dépister ?</h1>
+        <h3 style="margin-bottom: 50px;">Choisir le site de dépistage qui vous convient</h3>
+        <% if (errorMessage) { %>
+        <div class="user-message user-message--error" style="margin-bottom: 20px;"><%= errorMessage %></div>
+        <% } %>
+        <form method="POST" action="/prelevement">
+            <div class="table-responsive">
+                <table class="table mx-auto w-auto">
+                    <caption>En cliquant sur votre choix, vous nous donnez
+                        une indication qui nous permettra d’anticiper la fréquentation du site et vous accueillir au
+                        mieux.
+                    </caption>
+                    <thead>
+                        <tr class="d-flex">
+                            <%for(site of sites){%>
+                            <th class='col' scope="col-sm-12"><%=site.nom%></th>
+                            <%}%>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="d-flex">
+                <%for(site of sites){%>
+                            <td class='col'><%=site.adresse.voie%>,<br>
+                                <%=site.adresse.cp%> <%=site.adresse.ville%>
+                            </td>
+                            <%}%>
+              </tr>
+              <tr class="d-flex">
+                <%for(site of sites){%>
+                            <td class='col'><%=site.description%></td>
+                            <%}%>
+              </tr>
+              <tr class="d-flex">
+                <%for(site of sites){%>
+                            <td class='col'>
+                                <select name="select-<%=site._id%>" class='select-creneau'>
+                                    <option disabled value selected> -- Choisir un créneau -- </option>
+                                    <%for(creneau of site.creneaux){%>
+                                    <%if(moment().diff(moment(creneau.date+" "+creneau.fin, "DD/MM/YYYY hh")) < 0){%>
+                                    <%moment.locale('fr')%>
+                                    <option value="<%=creneau.id%>"><%=creneau.date%>
+                                        <%=creneau.debut%>h-<%=creneau.fin%>h
+                                    </option>
+                                    <%}%>
+                            <%}%>
+                                </select>
+                            </td>
+                            <%}%>
+                </tr>
+
+                <tr class="d-flex">
+                    <%for(site of sites){%>
+                            <td class='col'>
+                                <button value="<%=site._id%>" type="submit" name="butt" class='choisir'>Choisir ce
+                                    site</button>
+                            </td>
+                            <%}%>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+        </form>
+        
+    </div>
+</body>
+
+</html>

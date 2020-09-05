@@ -1,13 +1,3 @@
-body {
-  font: 14px sans-serif;
-  padding: 10px;
-  margin: 0px;
-}
-
-a {
-  color: #00B7FF;
-}
-
 .user-message {
   margin: auto;
   width: 90%;
@@ -16,6 +6,14 @@ a {
   border-radius: 3px;
   background: #b9c9ff;
   text-align: center;
+}
+
+button:active {
+  outline: none;
+}
+
+button:focus {
+  outline: 0;
 }
 
 .user-message--error {
@@ -30,7 +28,24 @@ a {
   }
 }
 
-.center{
+.center {
   margin-right: auto;
   margin-left: auto;
+}
+
+.select-creneau {
+  border: 1px solid #0D324D;
+  background-color: white;
+  color: #0D324D;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+select:active {
+  outline: none;
+  border: none;
+}
+
+select:focus {
+  outline: 0;
 }

@@ -4,6 +4,7 @@ const adminControllers = require('../controllers/admin')
 var aws = require('aws-sdk')
 var multer = require('multer')
 var multerS3 = require('multer-s3')
+const isAuth = require('../middleware/isAuth')
 require('dotenv').config();
 
 var s3 = new aws.S3({
@@ -28,15 +29,15 @@ var upload = multer({
 })
 
 /* GET */
-router.get('/', adminControllers.getIndex);
-router.get('/nouveau-site',adminControllers.getNouveauSite)
-router.get('/editer-site/:siteId',adminControllers.getEditerSite)
-router.get('/consulter-creneaux/:siteId',adminControllers.getCreneaux)
-router.get('/nouvelle-news',adminControllers.getNouvelleNews)
+router.get('/', isAuth,adminControllers.getIndex);
+router.get('/nouveau-site',isAuth,adminControllers.getNouveauSite)
+router.get('/editer-site/:siteId',isAuth,adminControllers.getEditerSite)
+router.get('/consulter-creneaux/:siteId',isAuth,adminControllers.getCreneaux)
+router.get('/nouvelle-news',isAuth,adminControllers.getNouvelleNews)
 
 /* POST */
-router.post('/ajouter-site',upload.array('images',6),adminControllers.postAjouterSite)
-router.post('/editer-site',upload.array('images',6),adminControllers.postEditerSite)
-router.post('/nouvelle-news',upload.array('image',1),adminControllers.postNouvelleNews)
+router.post('/ajouter-site',isAuth,upload.array('images',6),adminControllers.postAjouterSite)
+router.post('/editer-site',isAuth,upload.array('images',6),adminControllers.postEditerSite)
+router.post('/nouvelle-news',isAuth,upload.array('image',1),adminControllers.postNouvelleNews)
 
 module.exports = router;

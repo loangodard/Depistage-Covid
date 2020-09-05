@@ -44,7 +44,8 @@ exports.postAjouterSite = (req, res, next) => {
     })
 
     for (i = 0; i < nbCreneaux * 3; i = i + 3) {
-        creneaux.push({date: creneauxBruts[i], debut: Number(creneauxBruts[i + 1]), fin: Number(creneauxBruts[i + 2]), reservations: 0 })
+        const id = new Date().valueOf().toString() + Math.random().toString()
+        creneaux.push({id:id,date: creneauxBruts[i], debut: Number(creneauxBruts[i + 1]), fin: Number(creneauxBruts[i + 2]), reservations: 0 })
     }
 
 
@@ -70,13 +71,13 @@ exports.postEditerSite = (req, res, next) => {
         return f.location
     })
     const lenOfBody = Object.keys(req.body).length
-    const nbCreneaux = (lenOfBody - 6) / 4
+    const nbCreneaux = (lenOfBody - 6) / 5
     let creneaux = []
     console.log(req.body)
     const creneauxBruts = Object.values(req.body).slice(6)
     console.log(creneauxBruts)
-    for (i = 0; i < nbCreneaux * 4; i = i + 4) {
-        creneaux.push({ date: creneauxBruts[i], debut: Number(creneauxBruts[i + 1]), fin: Number(creneauxBruts[i + 2]), reservations: Number(creneauxBruts[i + 3]) })
+    for (i = 0; i < nbCreneaux * 5; i = i + 5) {
+        creneaux.push({ date: creneauxBruts[i], debut: Number(creneauxBruts[i + 1]), fin: Number(creneauxBruts[i + 2]), reservations: Number(creneauxBruts[i + 3]),id :(new Date().valueOf().toString() + Math.random().toString())})
     }
     const nomSite = req.body.nomSite
     const adresseSite = req.body.adresseSite

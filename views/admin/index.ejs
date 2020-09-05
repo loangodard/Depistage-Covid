@@ -1,12 +1,16 @@
 <%-include('../includes/header.ejs')%>
+<link rel='stylesheet' href='/stylesheets/admin.css'/>
 </head>
+<%-include('../includes/navigation.ejs')%>
 <body>
 	<div class="container">
 		<h1>Admin Index</h1>
-		<ul>
-			<li><a href="/admin/nouveau-site">Nouveau Site de dépistage</a></li>
-			<li><a href="/admin/nouvelle-news">Ajouter une News</a></li>
+		<br>
+		<ul class="admin-nav">
+			<li><a href="/admin/nouveau-site"><button class="btn nouveau-site">Nouveau Site de dépistage</button></a></li>
+			<!-- <li><a href="/admin/nouvelle-news">Ajouter une News</a></li> -->
 		</ul>
+		<br>
 	</div>
 
 	<div class="container">
@@ -14,7 +18,7 @@
 			<% for (site of sites){%>
 				<div class="col-12 col-md-6">
 					<div class="card">
-						<img class="card-img-top" src="<%=site.images[0]%>" alt="Card image cap">
+						<img style="max-width: 600px;" class="card-img-top" src="<%=site.images[0]%>" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title"><%=site.nom%></h5>
 							<p class="card-text"><%=site.description%></p>

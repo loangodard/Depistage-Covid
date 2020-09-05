@@ -1,0 +1,81 @@
+<%-include('./includes/header.ejs')%>
+</head>
+<%-include('./includes/navigation.ejs')%>
+
+<body>
+    <div class="container">
+        <form action="/fiche-renseignement" method="POST">
+            <h3 class='label-form'>Fiche de renseignements</h3>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="nom">Nom</label>
+                        <input class="form-control" name="nom" placeholder="Nom">
+                    </div>
+                    <div class="col">
+                        <label for="nom">Prénom</label>
+                        <input class="form-control" name="prenom" placeholder="Prénom">
+                    </div>
+                    <div class="col">
+                        <label for="nom">Sexe</label>
+                        <select style="width: 70px;" name="sexe" class="form-control">
+                            <option value="F">F</option>
+                            <option value="H">H</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom de naissance</label>
+                <input class="form-control" name="nomNaissance" placeholder="Nom de naissance">
+            </div>
+            <div class="form-group">
+                <label for="nom">Date de naissance</label>
+                <input class="form-control" name="dateNaissance" placeholder="jj/mm/aaaa">
+            </div>
+            <div class="form-group">
+                <label for="nom">Adresse</label>
+                <input class="form-control" name="adresse" placeholder="Numéro et voie">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="nom">Code postal</label>
+                        <input class="form-control" name="cp" placeholder="Code postal">
+                    </div>
+                    <div class="col">
+                        <label for="nom">Ville</label>
+                        <input class="form-control" name="ville" placeholder="Ville">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom du médecin traitant</label>
+                <input class="form-control" name="medecin" placeholder="Nom du médecin traitant">
+            </div>
+            <div class="form-group">
+                <label for="nom">Adresse email</label>
+                <input class="form-control" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="nom">Numéro de téléphone</label>
+                <input class="form-control" name="tel" placeholder="Numéro de téléphone">
+            </div>
+            <div class="form-group">
+                <label for="nom">Numéro de sécurité sociale</label>
+                <input class="form-control" name="secu" placeholder="Numéro de sécurité sociale">
+            </div>
+            <div class="form-group">
+                <label for="nom">Caisse de ratachement</label>
+                <input class="form-control" name="caisse" placeholder="Caisse de ratachement">
+            </div>
+            <div class="form-group">
+                <label for="nom">Département</label>
+                <input class="form-control" name="departement" placeholder="Département">
+            </div>
+            <button class="btn btn-primary" type="submit">Imprimer</button>
+        </form>
+    </div>
+</body>
+
+</html>

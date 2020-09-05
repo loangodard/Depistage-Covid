@@ -1,8 +1,20 @@
 <%-include('../includes/header.ejs')%>
 </head>
+<%-include('../includes/navigation.ejs')%>
 <body>
     <div class="container">
         <h1><%=site.nom%></h1>
+        <ul>
+            <%for(creneau of site.creneaux){%>
+                <li>
+                    <%=creneau.date%> <%=creneau.debut%>h - <%=creneau.fin%>h
+                    <ul>
+                        <li>Réservations : <%=creneau.reservations%></li>
+                    </ul>
+                </li>
+            <%}%>    
+        </ul>
+        <button><a href="/admin/editer-site/<%=site._id%>">Ajouter des créneaux</a></button>
     </div>
 </body>
 </html>

@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin-bottom: 30px;
+}
+
+section.container .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumbotron {
+    display: flex;
+    align-items: center;
+    height: 400px;
+    background-image: url("https://depistage-covid.s3.eu-west-3.amazonaws.com/ban.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.jumbotron h2 {
+    margin: auto;
+    background-color: #0D324D;
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    padding: 10px 35px;
+    border-radius: 5px;
+}
+
+.jumbotron h3 {
+    background-color: #F06529;
+    padding: 10px 35px;
+    border-radius: 5px;
+    color: #0D324D;
+    margin: auto;
+    font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    padding: 0;
+}
+
+ol li {
+    counter-increment: my-awesome-counter;
+    display: flex;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+}
+
+ol li::before {
+    content: "0" counter(my-awesome-counter);
+    font-weight: bold;
+    font-size: 3rem;
+    margin-right: 0.5rem;
+    font-family: 'Abril Fatface', serif;
+    line-height: 1;
+}
+
+.center-list {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bouton{
+    margin-top:60px ;
+    border: solid #0D324D;
+    background-color: white;
+    color:#0D324D;
+    border-radius: 30px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+.bouton:hover{
+    border: solid #0D324D;
+    background-color: #0D324D;
+    color:white;
+    border-radius: 30px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+.choisir{
+    border: 2px solid #0D324D;
+    background-color: white;
+    color:#0D324D;
+    border-radius: 30px;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.choisir:hover{
+    border: 2px solid #0D324D;
+    background-color: #0D324D;
+    color:white;
+    border-radius: 30px;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+}

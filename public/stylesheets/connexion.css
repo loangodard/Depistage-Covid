@@ -1,0 +1,8 @@
+.wrapper {
+    border: solid 1px grey;
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px lightgrey;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+}

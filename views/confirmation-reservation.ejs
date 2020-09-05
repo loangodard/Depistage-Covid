@@ -1,0 +1,18 @@
+<%-include('./includes/header.ejs')%>
+</head>
+<%-include('./includes/navigation.ejs')%>
+
+<body>
+
+<div class="container">
+    <h1 style="text-align: center;">Merci d'avoir renseigné votre venue sur le site <%=site.nom%></h1>
+    <h4 style="text-align: center;">Cela vas nous permettre de prévoir une organisation adaptée</h4>
+    <img style="max-width: 550px;" class="mx-auto d-block" src="<%=site.images[0]%>">
+    <h4 style="text-align: center;"><%=site.nom%></h4>
+    <h4 style="text-align: center;"><%=site.adresse.voie%>, <br> <%=site.adresse.cp%> <%=site.adresse.ville%></h4>
+    <p style="text-align: center;"><%=creneau.date%>, <%=creneau.debut%>h - <%=creneau.fin%>h</p>
+    <a href="/fiche-renseignement"><h4 style="text-align: center;">Remplir et imprimer la fiche de renseignement ></h4></a>
+</div>
+
+</body>
+</html>

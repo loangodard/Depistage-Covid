@@ -1,18 +1,33 @@
 <%-include('./includes/header.ejs')%>
+<link rel='stylesheet' href='/stylesheets/connexion.css'/>
 </head>
 <%-include('./includes/navigation.ejs')%>
 
 <body>
-  <h1>Connexion</h1>
-  <% if (errorMessage) { %>
-  <div class="user-message user-message--error"><%= errorMessage %></div>
-  <% } %>
-  <form action='/connexion' method="POST">
-    <input type='text' name='email' placeholder="email" required>
-    <input type='password' name='password' placeholder="mot de passe" required>
-    <button type='submit'>Connexion</button>
-  </form>
-</body>
-<%-include('./includes/footer.ejs')%>
+  <div class="container">
 
+
+    
+    <% if (errorMessage) { %>
+    <div class="user-message user-message--error"><%= errorMessage %></div>
+    <% } %>
+    <form action='/connexion' method="POST">
+      <div class="wrapper">
+        <h1 style="text-align: center;">Connexion</h1>
+        <div class="form-group">
+          <h5 style="text-align: center;">Adresse Email</h3>
+          <input style="width: 50%; margin: auto;" class="form-control" type='text' name='email' placeholder="email" required>
+        </div>
+        <div class="form-group">
+          <h5 style="text-align: center;">Mot de passe</h3>
+          <input style="width: 50%; margin: auto;" class="form-control" type='password' name='password' placeholder="mot de passe" required>
+        </div>
+        <div class="text-center">
+          <button style="width: 50%;margin-top: 15px;" class="btn btn-primary" type='submit'>Connexion</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</body>
 </html>
