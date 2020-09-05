@@ -1,20 +1,39 @@
 <%-include('../includes/header.ejs')%>
+<link rel='stylesheet' href='/stylesheets/connexion.css' />
 </head>
 <%-include('../includes/navigation.ejs')%>
+
 <body>
     <div class="container">
-        <h1><%=site.nom%></h1>
-        <ul>
-            <%for(creneau of site.creneaux){%>
-                <li>
-                    <%=creneau.date%> <%=creneau.debut%>h - <%=creneau.fin%>h
-                    <ul>
-                        <li>Réservations : <%=creneau.reservations%></li>
-                    </ul>
-                </li>
-            <%}%>    
-        </ul>
-        <button><a href="/admin/editer-site/<%=site._id%>">Ajouter des créneaux</a></button>
+
+        <div class="wrapper">
+            <h1 style="text-align: center;"><%=site.nom%></h1>
+
+            <div class="card" style="width: 18rem; margin: auto;">
+                <ul class="list-group list-group-flush">
+                    <%for(creneau of site.creneaux){%>
+                    <%moment.locale('fr')%>
+                    <%const today = moment().format("DD/MM/yyyy")%>
+                    <%if(moment(today).diff(creneau.date) > 0){%>
+                    <li class="list-group-item bg-light"><%=creneau.date%> <%=creneau.debut%>h
+                        -<%=creneau.fin%>h<br>Réservations: <%=creneau.reservations%> </li>
+                    <%}%>
+                    <%if(moment(today).diff(creneau.date) == 0){%>
+                    <li class="list-group-item bg-info"><%=creneau.date%> <%=creneau.debut%>h
+                        -<%=creneau.fin%>h<br>Réservations: <%=creneau.reservations%> </li>
+                    <%}%>
+                    <%if(moment(today).diff(creneau.date) < 0){%>
+                    <li class="list-group-item"><%=creneau.date%> <%=creneau.debut%>h
+                        -<%=creneau.fin%>h<br>Réservations: <%=creneau.reservations%> </li>
+                    <%}%>
+                    <%}%>
+                </ul>
+            </div>
+            <div class="text-center">
+                <button style="width: 50%;margin-top: 15px;" class="btn btn-primary" type='submit'><a href="/admin/editer-site/<%=site._id%>" style="color: white;">Ajouter des créneaux</a></button>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

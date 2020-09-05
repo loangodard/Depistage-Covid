@@ -9,6 +9,7 @@ exports.getIndex = (req, res, next) => {
         res.render('admin/index', {
             pageTitle: 'Espace Administrateur',
             sites: sites
+            ,isLoggedIn: req.session.isLoggedIn
         })
     })
 }
@@ -16,6 +17,7 @@ exports.getIndex = (req, res, next) => {
 exports.getNouveauSite = (req, res, next) => {
     res.render('admin/nouveau-site', {
         pageTitle: 'Nouveau Site'
+        ,isLoggedIn: req.session.isLoggedIn
     })
 }
 
@@ -62,6 +64,7 @@ exports.getEditerSite = (req, res, next) => {
         res.render('admin/editer-site.ejs', {
             pageTitle: 'Editer le site',
             site: site
+            ,isLoggedIn: req.session.isLoggedIn
         })
     })
 }
@@ -117,7 +120,9 @@ exports.getCreneaux = (req,res,next) => {
     Site.findById(siteId).then(site => {
         res.render('admin/consulter-creneaux',{
             pageTitle:'Consultation des créneaux',
-            site : site
+            site : site,
+            moment:moment
+            ,isLoggedIn: req.session.isLoggedIn
         })
     })
 }
@@ -125,6 +130,7 @@ exports.getCreneaux = (req,res,next) => {
 exports.getNouvelleNews = (req,res,next) => {
     res.render('admin/nouvelle-news',{
         pageTitle:"Nouvelle News"
+        ,isLoggedIn: req.session.isLoggedIn
     })
 }
 

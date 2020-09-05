@@ -11,6 +11,7 @@ exports.getConnexion = (req, res, next) => {
     res.render('connexion', {
         pageTitle: 'Connexion',
         errorMessage: message
+        ,isLoggedIn: req.session.isLoggedIn
     });
 }
 
@@ -24,6 +25,7 @@ exports.getInscription = (req, res, next) => {
     res.render('inscription', {
         pageTitle: 'inscription',
         errorMessage: message
+        ,isLoggedIn: req.session.isLoggedIn
     });
 }
 

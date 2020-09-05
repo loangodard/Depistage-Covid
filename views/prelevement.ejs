@@ -43,8 +43,8 @@
                                 <select name="select-<%=site._id%>" class='select-creneau'>
                                     <option disabled value selected> -- Choisir un créneau -- </option>
                                     <%for(creneau of site.creneaux){%>
-                                    <%if(moment().diff(moment(creneau.date+" "+creneau.fin, "DD/MM/YYYY hh")) < 0){%>
                                     <%moment.locale('fr')%>
+                                    <%if(moment().diff(moment(creneau.date+" "+creneau.fin, "DD/MM/YYYY hh")) < 0){%>
                                     <option value="<%=creneau.id%>"><%=creneau.date%>
                                         <%=creneau.debut%>h-<%=creneau.fin%>h
                                     </option>

@@ -1,5 +1,12 @@
 <nav class="navbar" style="background-color: #fff;">
-    <a class="navbar-brand" href="/">
-      <img src="https://depistage-covid.s3.eu-west-3.amazonaws.com/log.png" width="50" height="50" alt="">
-    </a>
+  <a class="navbar-brand" href="/">
+    <img src="https://depistage-covid.s3.eu-west-3.amazonaws.com/log.png" width="50" height="50" alt="">
+  </a>
+  <ul class="navbar-nav mr-right">
+    <%if(isLoggedIn){%>
+    <li class="nav-item active">
+      <a class="nav-link" href="/admin">Espace Administrateur</a>
+    </li>
+    <%}%>
+  </ul>
 </nav>

@@ -8,6 +8,7 @@ const fs = require('fs')
 exports.getIndex = (req, res, next) => {
     res.render('index', {
         pageTitle: 'CTRS Aubois'
+        ,isLoggedIn: req.session.isLoggedIn
     });
 }
 
@@ -25,6 +26,7 @@ exports.getPrelevement = (req, res, next) => {
             sites: sites,
             moment: moment,
             errorMessage: message
+            ,isLoggedIn: req.session.isLoggedIn
         })
     })
 }
@@ -66,18 +68,21 @@ exports.getConfirmation = (req, res, next) => {
         pageTitle: "Confirmation de la réservation",
         site: site,
         creneau: creneau
+        ,isLoggedIn: req.session.isLoggedIn
     })
 }
 
 exports.getFicheRenseignement = (req, res, next) => {
     res.render('fiche-renseignement', {
         pageTitle: 'Fiche de renseignement'
+        ,isLoggedIn: req.session.isLoggedIn
     })
 }
 
 exports.getMonCompte = (req, res, next) => {
     res.render('monCompte', {
         pageTitle: 'Mon Compte'
+        ,isLoggedIn: req.session.isLoggedIn
     });
 }
 
